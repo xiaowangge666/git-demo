@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日月交替</title>
+    <script>
+        function change(str) {
+            document.getElementById('container').setAttribute('class', str)
+        }
+    </script>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    #container {
+        height: 100vh;
+    }
+    
+    .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .sun {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        background-color: orange;
+        /* display: none; */
+    }
+    
+    .moon {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(calc(-50% + -160px), calc(-50% + -180px));
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        box-shadow: 160px 180px 0 cyan;
+    }
+    
+    .sea {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 35%;
+        backdrop-filter: blur(100px);
+        -webkit-backdrop-filter: blur(100px);
+        z-index: 100;
+    }
+    
+    .sun,
+    .moon,
+    .bg,
+    .sun-box,
+    .moon-box {
+        transition: all .5s ease-in-out;
+    }
+    
+    .sun-box,
+    .moon-box {
+        position: relative;
+        overflow: hidden;
+    }
+    /* 白天 */
+    
+    .light .sun-box {
+        height: 100%;
+    }
+    
+    .light .moon-box {
+        height: 0%;
+    }
+    
+    .light .bg {
+        background-color: #ffeea2;
+    }
+    /* 黑夜  */
+    
+    .dark .sun-box {
+        height: 0%;
+    }
+    
+    .dark .moon-box {
+        height: 100%;
+    }
+    
+    .dark .bg {
+        background-color: #040720;
+    }
+    
+    .btn-box {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        top: 5px;
+        left: 5px;
+        z-index: 101;
+    }
+    
+    .btn-box div {
+        background: rgba(255, 255, 255, .7);
+        color: #000;
+        margin: 5px;
+        width: 150px;
+        height: 40px;
+        font-size: 14px;
+        line-height: 40px;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    i {
+        font-style: normal;
+    }
+    
+    .btn-box div:hover {
+        background: #fff;
+    }
+</style>
+
+<body>
+    <div class="btn-box">
+        <div onclick="change('light')"><i>白天</i></div>
+        <div onclick="change('dark')"><i>夜晚</i></div>
+    </div>
+    <div class="dark" id="container">
+        <div class="bg"></div>
+        <div class="sun-box">
+            <div class="sun"></div>
+        </div>
+        <div class="moon-box">
+            <div class="moon"></div>
+        </div>
+        <div class="sea"></div>
+    </div>
+
+
+</body>
+
+
+</html>

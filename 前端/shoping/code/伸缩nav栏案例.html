@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伸缩栏</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
+    body {
+        background: linear-gradient(#99f, #f99);
+    }
+    
+    body,
+    .nav,
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .nav {
+        position: relative;
+        height: 40px;
+        border-radius: 20px;
+        background-color: #fff;
+    }
+    
+    ul {
+        width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        transition: all 0.5s;
+    }
+    
+    ul li {
+        list-style: none;
+        margin: 0 10px;
+    }
+    
+    .nav span {
+        position: absolute;
+        left: 6px;
+        top: 15px;
+        width: 28px;
+        height: 2px;
+        background-color: #999;
+        pointer-events: none;
+        transition: transform .3s ease-in-out .3s, top .3s ease-in-out .3s;
+    }
+    
+    .nav span:nth-child(3) {
+        top: 25px;
+    }
+    
+    input {
+        width: 40px;
+        height: 40px;
+        opacity: 0;
+        cursor: pointer;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #333;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+    .nav ul li a {
+        color: #fb7299;
+    }
+    
+    .nav input:checked~ul {
+        width: 300px;
+    }
+    
+    .nav input:checked~span:nth-child(2) {
+        top: 20px;
+        transform: rotate(45deg);
+        background-color: #fb7299;
+        transition: top .3s ease-in-out, transform .3s ease-in-out .3s;
+    }
+    
+    .nav input:checked~span:nth-child(3) {
+        top: 20px;
+        transform: rotate(-45deg);
+        background-color: #fb7299;
+        transition: top .3s ease-in-out, transform .3s ease-in-out .3s;
+    }
+</style>
+
+<body>
+    <div class="nav">
+        <input type="checkbox" />
+        <span></span><span></span>
+        <ul>
+            <li><a href="#">加油</a></li>
+            <li><a href="#">加油</a></li>
+            <li><a href="#">加油</a></li>
+            <li><a href="#">加油</a></li>
+            <li><a href="#">加油</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 1000px;
+        height: 500px;
+        margin: 100px auto;
+        border: 3px solid #568bc7;
+        overflow: hidden;
+    }
+
+    .container ul {
+        display: flex;
+    }
+
+    .container li {
+        width: 160px;
+        height: 500px;
+        list-style: none;
+        border-left: 1px solid #194b8d;
+        box-shadow: 0 0 25px #000;
+        transition: all 0.5s;
+    }
+
+    .container li img {
+        /* display: block; */
+        width: 1000px;
+        height: 500px;
+    }
+
+    .container ul:hover li {
+        width: 40px;
+
+    }
+
+    .container ul li:hover {
+        width: 600px;
+    }
+
+    body {
+        background: url(../images/bgi.jpeg) no-repeat fixed;
+        background-size: cover;
+    }
+
+    p {
+        font-size: 100px;
+        font-weight: 400;
+        margin-top: 80px;
+        text-align: center;
+        box-shadow: 0 0 30px #000;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <ul>
+            <li><img src="../images/1 (1).jpeg" alt=""></li>
+            <li><img src="../images/1 (2).jpeg" alt=""></li>
+            <li><img src="../images/1 (3).jpeg" alt=""></li>
+            <li><img src="../images/1 （4）.jpeg" alt=""></li>
+            <li><img src="../images/1 (5).jpeg" alt=""></li>
+        </ul>
+    </div>
+    <p>灵 笼</p>
+</body>
+
+</html>

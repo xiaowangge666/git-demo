@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whack A Mole!</title>
+  <link href="reset.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <h1>Whack-a-mole! <span class="score">0</span></h1>
+  <p>
+    <button>Start</button><span class="totalTime" style="font-size:50px"></span>
+  </p>
+
+  <div class="game">
+    <div class="hole hole1">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole2">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole3">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole4">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole5">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole6">
+      <div class="mole"></div>
+    </div>
+  </div>
+
+  <h2 class="game-status"></h2>
+  <script>
+    const start = document.querySelector('p button')
+    const countTimer = document.querySelector('p .totalTime')
+    const score = document.querySelector('h1 span')
+    const moles = document.querySelectorAll('.mole')
+    let time = 10
+    let scoreNum = null
+    let mark = true
+    start.addEventListener('click', () => {
+      // 倒计时模块
+      countTimer.innerText = time
+      start.style.display = 'none'
+      const timerId = setInterval(() => {
+        mark = true
+        time--
+        countTimer.innerText = time
+        // mole随机出现与消失模块
+        let index = parseInt(Math.random() * moles.length)
+        moles[index].style.top = 0
+        setTimeout(() => {
+          moles[index].style.top = '70%'
+
+        }, 800)
+
+        // 清除定时器
+        if (time <= 0) {
+          clearInterval(timerId)
+        }
+      }, 1000)
+      scoreNum = 0
+      moles.forEach((item) => {
+        item.addEventListener('click', function () {
+          if (mark) {
+            item.style.top = '70%'
+            scoreNum++
+            score.innerText = scoreNum
+            mark = false
+          }
+        })
+      })
+    })
+
+
+
+
+
+  </script>
+  <!-- <script src="./index.js"></script> -->
+</body>
+
+</html>

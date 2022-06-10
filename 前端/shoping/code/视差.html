@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视差效果</title>
+
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 200vh;
+        overflow-x: hidden;
+    }
+    
+    h1 {
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        color: #fff;
+        letter-spacing: 10px;
+    }
+    
+    .bg {
+        position: relative;
+        background: url(../imagesformission/shan.jpg) center center no-repeat;
+        background-size: cover;
+        font-weight: 900;
+        font-size: 39rem;
+        text-align: center;
+        height: 200vh;
+        -webkit-background-clip: text;
+        color: transparent;
+        text-align: center;
+        /* -webkit-text-fill-color: transparent; */
+    }
+    
+    .bg::before {
+        content: '';
+        position: absolute;
+        background: url(../imagesformission/shan.jpg) center center no-repeat;
+        background-size: cover;
+        left: 0;
+        width: 100%;
+        height: 200vh;
+        z-index: -99;
+    }
+    
+    h2 {
+        position: absolute;
+        width: 60%;
+        top: 120vh;
+        left: 50%;
+        transform: translate(-50%);
+        padding: 30px;
+        color: #fff;
+        font-size: 20px;
+        letter-spacing: 3px;
+        background-color: rgba(0, 0, 0, .3);
+    }
+</style>
+
+<body>
+    <h1>前端之路永不停ing</h1>
+    <div class="bg"><span>Liao</span></div>
+    <h2>一、基础要十分重视 首先建立第一条技能线，前端由html、css、js组成;然后将其细化为第二条线，html是由html4和html5组成;第三条线，css由css2和css3组成;第四条线，js由es5和es6构成。接下来是框架方面的延伸，css方向有les;html方向有bootstrap;js方向有jquery库。 再往下延伸一层，html、css方向，有前端构建工具;js除了jq库之外，还有更全面的前端框架，如react、angular、vue等。再往下细化，react是一个view层方案，为了让它能够全面解决前端需求，需要redux、react-router等作为补充。以上知识，都是一个合格的Web前端工程师应该掌握的。
+        二、学习要进行发散 Web前端是丰富多彩的，你可以融入其中，但不能只停留在这一块领域。如果你想要更好的发展，必须要多元化。比如做一个会Java后台的前端，做一个偏UI的前端，做一个很懂技术的产品经理，这些都将是你的优势。 企业其实并不需要你会很高深的技术，很多项目也用不上一些高难度的技术。大多时候，你能实现需求，能做出用户体验好的产品，能在特殊的阶段兼任某个岗位，能做一些别人做不了的事情，你的存在就更有价值。总之在技术上要抓住一个重点，也要发散自己的技术点，走更宽的路。
+
+    </h2>
+</body>
+<script>
+    const bg = document.querySelector(".bg")
+    document.addEventListener('scroll', () => {
+        const scrollY = window.scrollY
+        if (scrollY !== 0) {
+            bg.style.backgroundPosition = `calc(50% + ${scrollY}px) calc(50% + ${scrollY}px)`
+        } else {
+            bg.style.backgroundPosition = ``
+        }
+
+    })
+</script>
+
+</html>

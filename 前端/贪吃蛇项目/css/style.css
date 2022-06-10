@@ -1,0 +1,10 @@
+#map {
+    width: 800px;
+    height: 600px;
+    background: radial-gradient(circle at 50% 50%, #02aab0, #cadfdb);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
